@@ -1,0 +1,448 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+:root {
+    --background: #e3e6eb;
+    --blue: #3067db;
+    --white: #fefefe;
+    --gray: #a3a3a4;
+    --bgcolor: #111;
+}
+
+html {
+    font-size: 12px;
+}
+
+a {
+    text-decoration: none;
+    color: unset;
+}
+
+.flex {
+    display: flex;
+}
+
+body {
+    display: flex;
+    justify-content: space-around;
+    width: 1300px;
+    max-width: 100vw;
+    height: 600px;
+    max-height: 100vh;
+    background-color: var(--background);
+    border-radius: 5px;
+    padding: 60px 80px;
+    margin: auto auto;
+}
+
+.main {
+    width: 33.33%;
+    padding: 0 10px;
+}
+
+/* ---------- input ------------- */
+#input.active {
+    display: flex;
+}
+
+#input {
+    display: none;
+    font-size: 1.3em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #a3a3a463;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-zone {
+    padding: 20px 40px;
+    width: 500px;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+#inp {
+    border: none;
+    position: relative;
+    font-size: 1em;
+    width: 80%;
+    margin: 10px 0;
+    border-bottom: 1px solid var(--gray);
+    padding: 5px;
+}
+
+label.inp {
+    position: relative;
+}
+
+.label {
+    position: absolute;
+    top: 1px;
+    color: var(--gray);
+    transition: 0.25s;
+    user-select: none;
+    left: 0;
+}
+
+#inp:focus~.label {
+    transform: translateY(-18px);
+    font-size: 0.85em;
+}
+
+#inp:focus {
+    outline: none;
+}
+
+#inp:not(:placeholder-shown)~.label {
+    transform: translateY(-18px);
+    font-size: 0.85em;
+}
+
+#inp:not(:placeholder-shown) {
+    border-bottom: 2px solid var(--blue);
+
+}
+
+#colorGroup {
+    width: 45px;
+    height: 30px;
+    display: inline-block;
+    border: none;
+    padding: 0;
+    background-color: var(--white);
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+#input-bt {
+    display: block;
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    background-color: var(--blue);
+    color: var(--white);
+    border: none;
+    margin: 5px 0;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.25s;
+}
+
+#input-bt:hover {
+    background-color: var(--white);
+    color: var(--blue);
+    border: 1px solid var(--blue);
+}
+
+/* ---------- end input --------------- */
+
+
+
+.group-items {
+    height: 220px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+}
+
+
+/* Track */
+.group-items::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 20px var(--gray);
+    border-radius: 10px;
+}
+
+/* Handle */
+.group-items::-webkit-scrollbar {
+    width: 10px;
+    position: absolute;
+    right: 0;
+}
+
+.group-items .item {
+    position: relative;
+    background-color: #fefefe;
+    padding: 10px 24px;
+    height: 60px;
+    margin: 10px 0;
+    width: 100%;
+    border-radius: 12px;
+    scroll-snap-align: center;
+}
+
+.group-items .item:first-child {
+    top: 10px;
+    z-index: 1;
+    position: sticky;
+}
+
+.group-items .item::before {
+    content: "";
+    position: absolute;
+    height: 40px;
+    width: 6px;
+    background-color: var(--bgcolor);
+    left: 12px;
+    top: 10px;
+    border-radius: 10px;
+}
+
+.group-button {
+    display: block;
+    background-color: var(--blue);
+    color: var(--white);
+    padding: 10px 24px;
+    height: 40px;
+    margin: 5px 0;
+    width: 100%;
+    border-radius: 12px;
+    font-size: 1em;
+    text-align: center;
+    cursor: pointer;
+}
+
+.group-button:hover {
+    color: var(--blue);
+    background-color: var(--white);
+}
+
+/* ------------icon ------------- */
+.icon {
+    position: relative;
+    margin: 20px 0;
+}
+
+.item .name {
+    font-size: 1.3em;
+}
+
+.item .tasks {
+    margin-top: 5px;
+    font-size: 1em;
+    color: var(--gray);
+}
+
+.item i {
+    position: absolute;
+    right: 15px;
+    top: 19px;
+    font-size: 1.6em;
+    cursor: pointer;
+    color: var(--gray);
+}
+
+.icon span {
+    background-color: var(--white);
+    display: inline-block;
+    padding: 7px;
+    border-radius: 5px;
+    margin: 2px;
+    cursor: pointer;
+}
+
+
+
+/* ----------end icon --------------------- */
+
+/* ------------- Tag ------------------------------ */
+.tag {
+    position: relative;
+    background-color: var(--white);
+    padding: 20px;
+    margin-top: 40px;
+    border-radius: 10px;
+
+}
+
+.tag-container {
+    display: flex;
+    width: 100%;
+    height: 25px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+}
+
+.tag-container::-webkit-scrollbar {
+    display: none;
+}
+
+.tag i {
+    color: #03a5ee;
+    position: absolute;
+    padding: 10px 15px;
+    font-size: 1.5em;
+    top: -22px;
+    left: 0;
+    background-color: var(--white);
+    border-radius: 10px 10px 0;
+}
+
+.tag-container>span {
+    display: inline-block;
+    margin-right: 5px;
+    padding: 5px 15px;
+    color: var(--blue);
+    background-color: #e3f4fb;
+    border-radius: 15px;
+    cursor: pointer;
+    user-select: none;
+    scroll-snap-align: center;
+    white-space: nowrap;
+}
+
+.tag-container>span:first-child {
+    color: var(--white);
+    background-color: #03a5ee;
+}
+
+.tag-container>span:nth-last-child(1) {
+    border: 1px solid var(--gray);
+    color: var(--gray);
+    background-color: var(--white);
+}
+
+/* ------------ end tag --------------------------- */
+
+
+/* center */
+.main.center {
+    background-color: var(--white);
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+.center-contaier {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.center-contaier::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 20px var(--gray);
+    border-radius: 10px;
+}
+
+/* Handle */
+.center-contaier::-webkit-scrollbar {
+    width: 10px;
+    position: absolute;
+    right: 0;
+}
+
+.center-contaier{
+    position: relative;
+}
+
+.center-contaier h2 {
+    top: 0;
+    left: 20px;
+    position: sticky;
+    padding-bottom: 10px;
+    font-size: 2em;
+    background-color: var(--white);
+    z-index: 1;
+    box-shadow:  rgba(0, 0, 0, 0.053) 0px 6px 6px;
+}
+
+.center-contaier p{
+    font-size: 0.8em;
+    color: #03a5ee;
+    opacity: 0.6;
+}
+
+
+/* Ẩn checkbox mặc định */
+input[type="checkbox"] {
+    display: none;
+}
+
+/* Thiết lập giao diện cho label */
+.center-contaier label {
+    position: relative;
+    padding-left: 30px;
+    /* Khoảng cách giữa checkbox và label */
+    cursor: pointer;
+    display: inline-block;
+    line-height: 24px;
+    /* Cài đặt line-height để căn giữa theo chiều dọc */
+}
+
+/* Icon của checkbox */
+input[type="checkbox"]+label:before {
+    content: '\2713';
+    /* Unicode của dấu tích ✔ */
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 1em;
+    /* Kích thước của icon */
+    height: 1em;
+    text-align: center;
+    line-height: 1em;
+    color: #fff;
+    /* Màu chữ của icon */
+    background-color: var(--white);
+    /* Màu nền của checkbox đã chọn */
+    border: 1px solid var(--gray);
+    /* Viền của checkbox đã chọn */
+}
+
+/* Khi checkbox được chọn, thay đổi màu nền và viền của icon */
+input[type="checkbox"]:checked+label:before {
+    background-color: var(--gray);
+    color: var(--white);
+}
+
+.note-item>input:checked+label {
+    text-decoration: line-through;
+    color: var(--gray);
+}
+
+.note-item {
+    position: relative;
+    /* display: flex;
+    align-items: center; */
+    padding: 5px 10px;
+    border-top: 1px solid var(--gray);
+    font-size: 1.2em;
+}
+
+.note-item i {
+    color: var(--gray);
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+}
+
+.note-add{
+    position: absolute;
+    bottom: 0;
+    background-color: var(--white);
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* end center */
+
+
+/* right */
+
+#chart {
+    margin: 0 auto;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+}
+
+

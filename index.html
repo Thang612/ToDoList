@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoApp</title>
+
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/timelapse.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body onkeydown="handleKeyDown(event)">
+    <div class="main left">
+        <div class="group">
+            <div class="group-items">
+
+            </div>
+            <a class="group-button" onclick="showInput(1)">
+                + CREATE NEW GROUP
+            </a>
+        </div>
+
+        <div class="icon">
+            <div class="icon-main">
+                <span><i class="fa-solid fa-star"></i> Today</span>
+                <span><i class="fa-solid fa-calendar-days"></i> Tomorrow</span>
+            </div>
+            <div class="icon-sub">
+                <span><i class="fa-solid fa-calendar"></i></span>
+                <span><i class="fa-solid fa-bell"></i></span>
+                <span><i class="fa-solid fa-tag"></i></span>
+                <span><i class="fa-solid fa-comment"></i></span>
+            </div>
+        </div>
+
+        <div class="tag">
+            <div class="tag-container">
+                <span><a href="#">Home</a></span>
+                <span><a href="#">Design</a></span>
+                <span onclick="showInput(2)"><a href="#">Add Tag </a></span>
+            </div>
+            <i class="fa-solid fa-tags" onclick="showInput(2)"><span style="font-size: 0.8em;">+</span></i>
+        </div>
+    </div>
+    <div class="main center">
+        <div class="center-contaier">
+            <h2 id="heading-center">General</h2>
+            <!-- <div class="note-item">
+                <input type="checkbox" id="note1"><label for="note1">Fix my bike</label><i class="fa-solid fa-bars"></i>
+                <p>General - Home</p>
+            </div> -->
+
+            <div class="note-add" onclick="showInput(3)">
+                + Add Note
+            </div>
+        </div>
+    </div>
+    <div class="main right">
+        <div id="chart"></div>
+    </div>
+
+            
+    <script src="script.js"></script>
+</body>
+
+</html>
